@@ -1,0 +1,34 @@
+<Page x:Class="MyTranslator.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:controls="using:Template10.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:MyTranslator.Views"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:vm="using:MyTranslator.ViewModels">
+
+
+
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="LightBlue" Offset="2" />
+                    <GradientStop Color="LightGray" Offset="1" />
+                    <GradientStop Color="LightBlue" Offset="0" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <RadioButton Name="trans_rb" Content="Translator" Margin="428,164,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" Width="100"/>
+        <RadioButton Name="sinon_rb" Content="Synonym" Margin="543,164,0,0" VerticalAlignment="Top" Checked="sinon_rb_Checked" Width="100"/>
+        <TextBox Background="White" Name="to_trans" HorizontalAlignment="Left" Margin="95,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="520" Width="300"/>
+        <TextBox Background="White" IsReadOnly="True" Text="{Binding Result, UpdateSourceTrigger=PropertyChanged}" Name="t_block" HorizontalAlignment="Left" Margin="681,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="520" Width="358"/>
+        <Button Name="btn" IsEnabled="False" Content="Translate/Get Synonym" Margin="428,355,0,0" VerticalAlignment="Top" Height="48" Width="198" Click="Button_Click"/>
+        <ComboBox Name="l_pair" IsEnabled="False" Margin="428,234,0,0" Width="100" ItemsSource="{Binding Lang_pairs}" SelectionChanged="ComboBox_SelectionChanged"  />
+        <ComboBox Name="syn_combo" IsEnabled="False" Margin="543,234,0,0" Width="100"  SelectionChanged="syn_combo_SelectionChanged" ItemsSource="{Binding Syn_poss}"/>
+    </Grid>
+</Page>
